@@ -140,6 +140,18 @@ section {
     color: var(--text-muted);
 }
 
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
 .hero h1 {
     font-size: 6rem;
     font-weight: 800;
@@ -240,6 +252,20 @@ section {
     overflow: hidden;
     border: 3px solid var(--primary);
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    transition: var(--transition);
+}
+
+.profile-img-container.large {
+    width: 350px;
+    height: 350px;
+    border-width: 5px;
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.4);
+}
+
+.profile-img-container:hover {
+    transform: scale(1.05);
+    border-color: var(--secondary);
+    box-shadow: 0 0 60px rgba(217, 70, 239, 0.5);
 }
 
 .profile-img {
@@ -375,6 +401,9 @@ input:focus, textarea:focus {
     .nav-container { justify-content: center; }
     .hero h1 { font-size: 3.5rem; }
     .hero h2 { font-size: 1.8rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-image { order: -1; }
+    .profile-img-container.large { width: 250px; height: 250px; }
     .grid, .project-grid, .skills-grid { grid-template-columns: 1fr; }
     .hero { text-align: center; padding-top: 50px; }
     .hero p { margin: 0 auto 2rem auto; font-size: 1.1rem; }
