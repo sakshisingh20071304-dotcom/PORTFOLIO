@@ -1,12 +1,12 @@
 :root {
-    --bg-dark: #0a0a0a;
-    --bg-card: rgba(255, 255, 255, 0.05);
-    --primary: #3b82f6;
-    --secondary: #d946ef;
-    --accent: #10b981;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-main: #ffffff;
+    --bg-card: #f8fafc;
+    --primary: #2563eb;
+    --secondary: #c026d3;
+    --accent: #059669;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --glass-border: rgba(0, 0, 0, 0.08);
     --font-main: 'Outfit', sans-serif;
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -19,7 +19,7 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-main);
     color: var(--text-main);
     font-family: var(--font-main);
     line-height: 1.6;
@@ -37,7 +37,7 @@ body {
     position: fixed;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
@@ -53,7 +53,7 @@ body {
     width: 100%;
     height: 70px;
     z-index: 100;
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
     display: flex;
@@ -73,7 +73,7 @@ body {
 .logo {
     font-size: 1.8rem;
     font-weight: 800;
-    color: white;
+    color: var(--text-main);
     text-decoration: none;
 }
 
@@ -129,8 +129,8 @@ section {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(217, 70, 239, 0.1) 0, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(192, 38, 211, 0.05) 0, transparent 50%);
     z-index: -1;
 }
 
@@ -196,7 +196,7 @@ section {
 
 .btn-secondary {
     background: transparent;
-    color: white;
+    color: var(--text-main);
     border: 1px solid var(--glass-border);
     margin-left: 1.5rem;
 }
@@ -284,7 +284,7 @@ section {
     display: block;
     font-size: 2.5rem;
     font-weight: 800;
-    color: white;
+    color: var(--text-main);
 }
 
 .stat-item .label {
@@ -302,9 +302,10 @@ section {
 }
 
 .skill-card:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: white;
     border-color: var(--primary);
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
 .skills-grid {
@@ -332,6 +333,7 @@ section {
 .project-card:hover {
     transform: translateY(-10px);
     border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
 .project-img {
@@ -381,7 +383,7 @@ input, textarea {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
-    color: white;
+    color: var(--text-main);
     font-family: inherit;
     outline: none;
     transition: var(--transition);
@@ -389,7 +391,7 @@ input, textarea {
 
 input:focus, textarea:focus {
     border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.08);
+    background: white;
 }
 
 #img-project-1 { background-image: url('assets/project1.png'); }
