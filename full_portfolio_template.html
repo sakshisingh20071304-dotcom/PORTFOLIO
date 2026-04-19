@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Portfolio | Sakshi Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --text: #ffffff;
+            --muted: #94a3b8;
+            --bg: #0a0a0a;
+        }
+
+        @media print {
+            .page { page-break-after: always; height: 100vh; overflow: hidden; }
+            body { background: var(--bg); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+        .page { padding: 60px; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; position: relative; }
+        .page-number { position: absolute; bottom: 40px; right: 40px; color: var(--muted); font-size: 12px; }
+
+        h1 { font-size: 4rem; font-weight: 800; margin-bottom: 1rem; color: white; }
+        h1 span { color: var(--primary); }
+        h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem; border-left: 5px solid var(--primary); padding-left: 20px; }
+        h3 { font-size: 1.5rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        
+        p { font-size: 1.25rem; color: var(--muted); max-width: 800px; margin-bottom: 2rem; }
+        
+        .profile-large { width: 300px; height: 300px; border-radius: 50%; border: 10px solid var(--primary); object-fit: cover; margin-bottom: 3rem; box-shadow: 0 0 50px rgba(59,130,246,0.4); }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 2rem; }
+        .card { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .card h4 { color: var(--primary); margin-bottom: 15px; font-size: 1.5rem; }
+
+        .project-img-full { width: 100%; height: 400px; border-radius: 20px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem; }
+
+        .tagline { font-size: 1.5rem; font-weight: 300; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: COVER -->
+    <div class="page text-center" style="align-items: center;">
+        <img src="assets/profile.jpg" class="profile-large">
+        <h1>Sakshi<span>.</span></h1>
+        <p class="tagline">Creative Developer & AI Enthusiast</p>
+        <p>B.Tech CSE AIML | Batch 2029</p>
+        <div class="page-number">01</div>
+    </div>
+
+    <!-- PAGE 2: PHILOSOPHY -->
+    <div class="page">
+        <h3>Vision</h3>
+        <h2>Bridging Logic and <br><span>Visual Excellence.</span></h2>
+        <p>I believe that technology should not only be functional but breathtaking. In my first year of B.Tech, I am exploring the deep layers of Artificial Intelligence to build products that feel alive.</p>
+        <p>This portfolio is a culmination of my academic foundation and my creative drive.</p>
+        <div class="page-number">02</div>
+    </div>
+
+    <!-- PAGE 3: ACADEMIC JOURNEY -->
+    <div class="page">
+        <h3>Academia</h3>
+        <h2>Manav Rachna <br><span>University</span></h2>
+        <div class="card">
+            <h4>B.Tech CSE (AI & ML)</h4>
+            <p><strong>Timeline:</strong> 2025 - 2029</p>
+            <p>Focusing on Data Structures, Discrete Math, and Neural Networks. Consistently maintaining top-tier academic performance while leading local student tech circles.</p>
+        </div>
+        <div class="page-number">03</div>
+    </div>
+
+    <!-- PAGE 4: TECH SKILLS I -->
+    <div class="page">
+        <h3>Arsenal</h3>
+        <h2>Artificial <br><span>Intelligence</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h4>Data Analysis</h4>
+                <p>Proficient in Python libraries like NumPy and Pandas for processing complex datasets.</p>
+            </div>
+            <div class="card">
+                <h4>Predictive Modeling</h4>
+                <p>Exploring regression and classification algorithms for real-world impact.</p>
+            </div>
+        </div>
+        <div class="page-number">04</div>
+    </div>
+
+    <!-- PAGE 5: TECH SKILLS II -->
+    <div class="page">
+        <h3>Arsenal</h3>
+        <h2>Frontend <br><span>Engineering</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h4>UI Architecture</h4>
+                <p>Building high-performance interfaces with JavaScript and optimized CSS.</p>
+            </div>
+            <div class="card">
+                <h4>Design Systems</h4>
+                <p>Creating consistent, reusable component libraries with a focus on Glassmorphism.</p>
+            </div>
+        </div>
+        <div class="page-number">05</div>
+    </div>
+
+    <!-- PAGE 6: PROJECT 1 -->
+    <div class="page">
+        <h3>Showcase</h3>
+        <h2>Lumina <br><span>Dashboard</span></h2>
+        <div class="project-img-full" style="background-image: url('assets/project1.png');"></div>
+        <p>A flagship analytics platform designed for real-time AI model monitoring. Features high-density charts and a sleek dark-glass interface.</p>
+        <div class="page-number">06</div>
+    </div>
+
+    <!-- PAGE 7: PROJECT 2 -->
+    <div class="page">
+        <h3>Showcase</h3>
+        <h2>Nova <br><span>E-commerce</span></h2>
+        <div class="project-img-full" style="background-image: url('assets/project2.png');"></div>
+        <p>A luxury fashion experience that prioritizes minimalist design and ultra-smooth user transitions. 2026 Production.</p>
+        <div class="page-number">07</div>
+    </div>
+
+    <!-- PAGE 8: BLOG/INSIGHTS -->
+    <div class="page">
+        <h3>Reflections</h3>
+        <h2>Tech & <br><span>Research</span></h2>
+        <div class="card">
+            <h4>"The 2029 Vision"</h4>
+            <p>Published research interests in how AI will automate frontend layout generation by the time I graduate.</p>
+        </div>
+        <p>Exploring the ethics of AI and its role in modern workforce transformation.</p>
+        <div class="page-number">08</div>
+    </div>
+
+    <!-- PAGE 9: COLLABORATIONS -->
+    <div class="page">
+        <h3>Network</h3>
+        <h2>Community <br><span>Impact</span></h2>
+        <p>Active member of the MRU Tech Club. Collaborating with cross-disciplinary teams to integrate AI solutions into university infrastructure projects.</p>
+        <div class="grid">
+            <div class="card">
+                <h4>Leadership</h4>
+                <p>Leading the Freshman Coding Sync circle.</p>
+            </div>
+        </div>
+        <div class="page-number">09</div>
+    </div>
+
+    <!-- PAGE 10: CONTACT -->
+    <div class="page text-center">
+        <h3>Ready to build?</h3>
+        <h2>Let's <br><span>Connect</span></h2>
+        <p>sakshi_singh25@mru.ac.in</p>
+        <p>Manav Rachna University, Faridabad</p>
+        <p>LinkedIn: linkedin.com/in/sakshi-singh</p>
+        <div class="page-number">10</div>
+    </div>
+
+</body>
+</html>
