@@ -1,16 +1,17 @@
 :root {
-    --bg-main: #0a0a0a;
-    --bg-card: #121212;
-    --primary: #00d2ff;
-    --secondary: #9d50bb;
+    --bg-main: #020205; /* Deeper cosmic black */
+    --bg-card: #0a0a0f;
+    --primary: #00f2ff; /* Electric Cyan */
+    --secondary: #7000ff; /* Deep Purple */
     --accent: #ff007a;
-    --text-main: #f5f5f7;
-    --text-muted: #a1a1aa;
-    --glass-background: rgba(18, 18, 18, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-muted: #888899;
+    --glass-background: rgba(10, 10, 15, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
     --font-main: 'Outfit', sans-serif;
-    --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    --neon-glow: 0 0 20px rgba(0, 210, 255, 0.3);
+    --transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --neon-glow: 0 0 15px rgba(0, 242, 255, 0.4);
+    --border-glow: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
 * {
@@ -47,6 +48,19 @@ body {
     filter: blur(40px);
 }
 
+/* Scanline Effect */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    z-index: 999;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
 /* Nav */
 .glass-nav {
     position: fixed;
@@ -69,8 +83,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.05;
-    z-index: 9999;
+    opacity: 0.03;
+    z-index: 998;
     pointer-events: none;
     background-image: url('https://grainy-gradients.vercel.app/noise.svg');
 }
@@ -179,22 +193,46 @@ section {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(157, 80, 187, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(255, 0, 122, 0.03) 0%, transparent 60%);
+        radial-gradient(circle at 20% 30%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(112, 0, 255, 0.05) 0%, transparent 40%);
     z-index: -1;
-    animation: pulseBg 10s infinite alternate linear;
+    overflow: hidden;
+}
+
+/* Starfield Effect */
+.mesh-bg::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        10vw 20vh 1px white, 30vw 50vh 1px white, 50vw 10vh 1px white, 
+        70vw 80vh 1px white, 90vw 30vh 1px white, 15vw 90vh 1px white,
+        45vw 40vh 1px white, 75vw 15vh 1px white, 5vw 60vh 1px white,
+        85vw 70vh 1px white, 25vw 25vh 1px white, 65vw 55vh 1px white;
+    animation: stars 100s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes stars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
 }
 
 @keyframes pulseBg {
-    0% { opacity: 0.5; transform: scale(1); }
-    100% { opacity: 0.8; transform: scale(1.1); }
+    0% { opacity: 0.4; transform: scale(1); }
+    100% { opacity: 0.7; transform: scale(1.05); }
 }
 
 .hero h2 {
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 400;
-    color: var(--text-muted);
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 1rem;
 }
 
 .hero-grid {
@@ -210,14 +248,20 @@ section {
 }
 
 .hero h1 {
-    font-size: 6rem;
+    font-size: 8rem;
     font-weight: 800;
-    line-height: 1;
-    margin-bottom: 2rem;
+    line-height: 0.9;
+    margin-bottom: 2.5rem;
+    letter-spacing: -3px;
+    background: linear-gradient(to bottom, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero h1 span {
     color: var(--primary);
+    -webkit-text-fill-color: var(--primary);
+    text-shadow: var(--neon-glow);
 }
 
 .hero p {
@@ -480,6 +524,95 @@ input:focus, textarea:focus {
     .hero h1 { font-size: 3.5rem; }
     .hero h2 { font-size: 1.8rem; }
     .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.bento-item {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.bento-item i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.bento-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.bento-item p {
+    color: var(--text-muted);
+}
+
+.bento-item.tall { grid-row: span 2; }
+.bento-item.wide { grid-column: span 2; }
+
+.bento-tags {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.bento-tags span {
+    background: rgba(255,255,255,0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    border: 1px solid var(--glass-border);
+}
+
+.bento-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,242,255,0.1), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.bento-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: var(--neon-glow);
+}
+
+.bento-item:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .bento-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+    .bento-item.wide { grid-column: span 1; }
+    .bento-item.tall { grid-row: span 1; }
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
     .hero-image { order: -1; }
     .profile-img-container.large { width: 250px; height: 250px; }
     .grid, .project-grid, .skills-grid { grid-template-columns: 1fr; }
