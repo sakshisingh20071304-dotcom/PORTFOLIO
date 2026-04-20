@@ -4,126 +4,329 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Sakshi Singh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
-            --primary: #3b82f6;
-            --secondary: #d946ef;
-            --text: #f8fafc;
-            --muted: #94a3b8;
-            --bg: #0a0a0a;
-            --accent: #10b981;
+            --resume-primary: #3b82f6;
+            --resume-text: #1a1a1a;
+            --resume-muted: #4b5563;
+            --resume-bg: #ffffff;
+            --resume-border: #e5e7eb;
+        }
+
+        [data-theme="dark"] {
+            --resume-bg: #0a0a0f;
+            --resume-text: #f1f5f9;
+            --resume-muted: #94a3b8;
+            --resume-border: rgba(255,255,255,0.1);
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            transition: none; /* Disable theme transitions for resume layout stability */
+        }
+
+        .resume-page {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 60px;
+            background: var(--resume-bg);
+            color: var(--resume-text);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            font-family: 'Outfit', sans-serif;
         }
 
         @media print {
-            .no-print { display: none; }
-            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .no-print, .glass-nav, footer, .theme-toggle, .cursor-glow, .bg-noise {
+                display: none !important;
+            }
+            body { background: white !important; padding: 0 !important; }
+            .resume-page {
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                max-width: 100% !important;
+                background: white !important;
+                color: black !important;
+            }
+            .resume-header h1 { color: #1a1a1a !important; }
+            .resume-header .line { background: #3b82f6 !important; }
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; padding: 40px; }
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
 
-        .header { border-bottom: 2px solid var(--primary); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
-        h1 { font-size: 32px; font-weight: 800; color: white; }
-        h1 span { color: var(--primary); }
-        .contact-info { text-align: right; color: var(--muted); font-size: 14px; }
+        .resume-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
 
-        .section { margin-bottom: 25px; }
-        h2 { font-size: 18px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 10px; }
+        .resume-header .tagline {
+            color: var(--resume-primary);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
 
-        .item { margin-bottom: 15px; }
-        .item-header { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 5px; color: white; }
-        .item-sub { color: var(--primary); italic; margin-bottom: 5px; opacity: 0.9; }
-        .item-desc { font-size: 14px; color: var(--muted); }
+        .resume-header .location {
+            color: var(--resume-muted);
+            font-size: 0.95rem;
+        }
 
-        .skills-list { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-        .skill { font-size: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 4px; color: var(--text); text-align: center; }
+        .line {
+            height: 2px;
+            background: var(--resume-primary);
+            width: 100%;
+            margin: 1.5rem 0;
+            opacity: 0.6;
+        }
+
+        .resume-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .resume-section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--resume-text);
+        }
+
+        .resume-content p {
+            line-height: 1.7;
+            color: var(--resume-muted);
+            font-size: 1.05rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .experience-header .date {
+            color: var(--resume-muted);
+            font-weight: 500;
+        }
+
+        .experience-sub {
+            color: var(--resume-primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .experience-list {
+            list-style: disc;
+            margin-left: 1.5rem;
+            color: var(--resume-muted);
+        }
+
+        .experience-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid-resume {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .skill-values {
+            color: var(--resume-muted);
+            line-height: 1.6;
+        }
+
+        .footer-resume {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--resume-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-resume a {
+            color: var(--resume-primary);
+            text-decoration: none;
+        }
+
+        .print-btn-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1001;
+        }
 
         .btn-print {
-            position: fixed;
-            top: 20px;
-            right: 20px;
+            padding: 1rem 2rem;
             background: var(--primary);
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 50px;
             text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border: none;
             cursor: pointer;
-            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .btn-print:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
     </style>
 </head>
-<body>
-    <button onclick="window.print()" class="btn-print no-print">Save as PDF</button>
-
-    <div class="header">
-        <div style="display: flex; align-items: center; gap: 20px;">
-            <img src="assets/profile.jpg" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover;">
-            <div>
-                <h1>Sakshi<span>.</span></h1>
-                <p>B.Tech CSE AIML Student</p>
-            </div>
-        </div>
-        <div class="contact-info">
-            <p>Manav Rachna University</p>
-            <p>Portfolio: sakshi-portfolio.local</p>
-            <p>Email: sakshi_singh25@mru.ac.in</p>
-        </div>
+<body data-theme="dark">
+    
+    <div class="print-btn-container no-print">
+        <button onclick="window.print()" class="btn-print">
+            <i class="fas fa-file-pdf"></i> Download Resume
+        </button>
     </div>
 
-    <div class="section">
-        <h2>Education</h2>
-        <div class="item">
-            <div class="item-header">
-                <span>Manav Rachna University</span>
-                <span>2025 - 2029 (Expected)</span>
-            </div>
-            <div class="item-sub">B.Tech in Computer Science & Engineering (AI & ML)</div>
-            <p class="item-desc">First-year student exploring advanced algorithms, neural networks, and the intersection of AI with modern web technologies.</p>
-        </div>
-        <div class="item">
-            <div class="item-header">
-                <span>Holy Child Public School</span>
-                <span>Completed</span>
-            </div>
-            <div class="item-sub">Higher Secondary Education (CBSE)</div>
-            <p class="item-desc">Focused on Science and Mathematics, building a strong foundation for technical studies.</p>
-        </div>
-    </div>
+    <main class="resume-page">
+        <header class="resume-header">
+            <h1>Sakshi Singh</h1>
+            <p class="tagline">AI & ML Engineer · Full Stack Developer · Computer Vision</p>
+            <p class="location">Manav Rachna University, Faridabad, Haryana, India</p>
+        </header>
 
-    <div class="section">
-        <h2>Core Skills</h2>
-        <div class="skills-list">
-            <div class="skill">Artificial Intelligence</div>
-            <div class="skill">Machine Learning</div>
-            <div class="skill">Frontend Development</div>
-            <div class="skill">UI/UX Design</div>
-            <div class="skill">Python & Java</div>
-            <div class="skill">Database Management</div>
-        </div>
-    </div>
+        <div class="line"></div>
 
-    <div class="section">
-        <h2>Key Projects</h2>
-        <div class="item">
-            <div class="item-header">
-                <span>Aura Sentiment Engine</span>
-                <span>2026</span>
+        <section class="resume-section">
+            <h2>Objective</h2>
+            <div class="resume-content">
+                <p>First-year B.Tech CSE (AI & ML) student at Manav Rachna University with a passion for neural architectures, NLP, and computer vision. Eager to build intelligent, high-performance systems that stand at the intersection of rigorous logic and elegant design. Seeking opportunities to contribute to cutting-edge AI projects and grow as a developer.</p>
             </div>
-            <p class="item-desc">A real-time NLP system using Transformers to analyze sentiment across multi-modal data streams with 98% accuracy.</p>
-        </div>
-        <div class="item">
-            <div class="item-header">
-                <span>Nebula Diagnostics</span>
-                <span>2026</span>
-            </div>
-            <p class="item-desc">A deep learning medical imaging tool for automated anomaly detection in MRI scans using customized CNN architectures.</p>
-        </div>
-    </div>
+        </section>
 
-    <div class="section">
-        <h2>Summary</h2>
-        <p class="item-desc">Highly motivated AI/ML enthusiast and developer with a strong foundation in computer science and a passion for creating aesthetically pleasing, functional web applications. Dedicated to bridging the gap between complex AI logic and intuitive user experiences.</p>
-    </div>
+        <div class="line"></div>
+
+        <section class="resume-section">
+            <h2>Education</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>B.Tech — Computer Science & Engineering (AI & ML)</h3>
+                    <span class="date">2025 — 2029</span>
+                </div>
+                <p class="experience-sub">Manav Rachna University, Faridabad, Haryana</p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Senior Secondary — CBSE</h3>
+                    <span class="date">Completed 2025</span>
+                </div>
+                <p class="experience-sub">Holy Child Public School</p>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="resume-section">
+            <h2>Projects</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Aura Sentiment Engine</h3>
+                    <span class="date">2026</span>
+                </div>
+                <p class="experience-sub">NLP · Transformers · FastAPI</p>
+                <ul class="experience-list">
+                    <li>Designed and built a real-time sentiment analysis system leveraging state-of-the-art Transformer models.</li>
+                    <li>Implemented a FastAPI backend to serve split-second emotional intelligence predictions on multi-modal text data.</li>
+                    <li>Demonstrated how AI can decode human nuance and emotional context in digital communications at scale.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Nebula Diagnostics</h3>
+                    <span class="date">2026</span>
+                </div>
+                <p class="experience-sub">Computer Vision · Deep CNNs · Medical AI</p>
+                <ul class="experience-list">
+                    <li>Built a deep convolutional neural network (CNN) pipeline for precision anomaly detection in medical scans.</li>
+                    <li>Designed to assist radiologists by identifying subtle abnormalities with high accuracy, reducing diagnostic time.</li>
+                    <li>Focused on high-precision modeling and reliability to support real-world clinical diagnostic workflows.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="resume-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid-resume">
+                <div class="skill-category">AI / ML</div>
+                <div class="skill-values">PyTorch · TensorFlow · Transformers · NLP · Computer Vision · Predictive Modeling · CNNs</div>
+                
+                <div class="skill-category">Backend</div>
+                <div class="skill-values">FastAPI · Node.js · REST APIs · Microservices Architecture</div>
+                
+                <div class="skill-category">Frontend</div>
+                <div class="skill-values">React · Next.js · HTML · CSS · JavaScript</div>
+                
+                <div class="skill-category">Tools</div>
+                <div class="skill-values">Git · Python · VS Code · Linux</div>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="resume-section">
+            <h2>Areas of Interest</h2>
+            <div class="resume-content">
+                <p>Neural Architecture Design · Natural Language Processing · Medical Imaging AI · Real-Time Performance Optimization · Full Stack Web Development · Human-AI Interaction</p>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="resume-section">
+            <h2>Languages</h2>
+            <div class="resume-content">
+                <p>English (Professional) · Hindi (Native)</p>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <footer class="footer-resume">
+            <p><strong>Portfolio:</strong> <a href="https://portfolio-rho-neon-53.vercel.app" target="_blank">https://portfolio-rho-neon-53.vercel.app</a></p>
+        </footer>
+    </main>
+
+    <script src="layout.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
+

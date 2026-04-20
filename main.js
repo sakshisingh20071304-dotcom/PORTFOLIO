@@ -26,11 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if(cursor) {
                 cursor.style.width = '400px';
                 cursor.style.height = '400px';
-                cursor.style.background = 'radial-gradient(circle, rgba(0, 242, 255, 0.08) 0%, transparent 70%)';
+                cursor.style.background = 'radial-gradient(circle, var(--cursor-bg) 0%, transparent 70%)';
                 cursor.style.opacity = '1';
             }
         });
     });
+
 
     // Magnetic Buttons
     document.querySelectorAll('.btn, .social-links-nav a').forEach(btn => {
