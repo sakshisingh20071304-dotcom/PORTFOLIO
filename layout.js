@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="social-links-nav">
                 <a href="https://github.com/sakshisingh20071304-dotcom" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://linkedin.com/in/sakshisingh2007" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:sakshi_singh25@mru.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="social-links-footer">
                         <a href="https://github.com/sakshisingh20071304-dotcom" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         <a href="https://linkedin.com/in/sakshisingh2007" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="mailto:sakshi_singh25@mru.ac.in"><i class="fas fa-envelope"></i> Email</a>
                     </div>
                 </div>
                 <div class="footer-links">
