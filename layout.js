@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Inject Font Awesome
+    if (!document.getElementById('font-awesome-cdn')) {
+        const fa = document.createElement('link');
+        fa.id = 'font-awesome-cdn';
+        fa.rel = 'stylesheet';
+        fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fa);
+    }
+
     const headerHTML = `
     <nav class="glass-nav">
         <div class="nav-container">
@@ -9,10 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="experience.html">Journey</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="collaborations.html">Collaborate</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="social-links-nav">
+                <a href="https://github.com/sakshisingh20071304-dotcom" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/sakshisingh2007" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -21,17 +32,27 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </nav>
     <div class="cursor-glow"></div>
+    <div class="bg-noise"></div>
     `;
 
     const footerHTML = `
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Sakshi<span>.</span></div>
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">Sakshi<span>.</span></div>
+                    <p>Building the future with AI & Creative Engineering.</p>
+                    <div class="social-links-footer">
+                        <a href="https://github.com/sakshisingh20071304-dotcom" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://linkedin.com/in/sakshisingh2007" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    </div>
+                </div>
                 <div class="footer-links">
+                    <h4>Quick Links</h4>
                     <a href="index.html">Home</a>
                     <a href="about.html">About</a>
                     <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
                 </div>
             </div>
             <p class="copyright">&copy; 2026 Sakshi Singh. Built with passion & precision.</p>

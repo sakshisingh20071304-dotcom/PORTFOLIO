@@ -9,6 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { duration: 500, fill: "forwards" });
     });
 
+    // Cursor interaction with links
+    const links = document.querySelectorAll('a, button, .project-card, .skill-card');
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            cursor.style.width = '100px';
+            cursor.style.height = '100px';
+            cursor.style.background = 'radial-gradient(circle, var(--primary) 0%, transparent 70%)';
+            cursor.style.opacity = '0.4';
+        });
+        link.addEventListener('mouseleave', () => {
+            cursor.style.width = '400px';
+            cursor.style.height = '400px';
+            cursor.style.background = 'radial-gradient(circle, rgba(0, 210, 255, 0.08) 0%, transparent 70%)';
+            cursor.style.opacity = '1';
+        });
+    });
+
     // Reveal animations on scroll
     const observerOptions = {
         threshold: 0.1

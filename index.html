@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-theme">
+<body class="dark-theme">
     
     <main>
         <!-- Hero Section -->
@@ -50,21 +50,97 @@
             </div>
         </section>
 
-        <!-- Preview Section -->
-        <section class="preview">
+        <!-- Expertise Section -->
+        <section class="expertise" id="expertise">
             <div class="container">
-                <div class="grid">
-                    <div class="preview-card">
-                        <h3>AI & ML</h3>
-                        <p>Focusing on neural networks and predictive modeling.</p>
-                        <a href="skills.html" class="link">Explore Tech →</a>
+                <h3 class="section-tag">Core Expertise</h3>
+                <h2 class="section-title">Specialized in <span class="gradient-text">Future Tech</span>.</h2>
+                <div class="skills-grid-detailed">
+                    <div class="category reveal-text">
+                        <h3>Artificial Intelligence</h3>
+                        <ul>
+                            <li>Neural Networks & Deep Learning</li>
+                            <li>Natural Language Processing</li>
+                            <li>Computer Vision Algorithms</li>
+                            <li>Predictive Data Modeling</li>
+                        </ul>
                     </div>
-                    <div class="preview-card">
-                        <h3>Web Dev</h3>
-                        <p>Crafting premium UIs with modern workflows.</p>
-                        <a href="projects.html" class="link">See Gallery →</a>
+                    <div class="category reveal-text delay-1">
+                        <h3>Creative Development</h3>
+                        <ul>
+                            <li>Premium UI/UX Design</li>
+                            <li>Modern Web Architectures</li>
+                            <li>Interactive 3D Experiences</li>
+                            <li>Performance Optimization</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="featured-work" id="work">
+            <div class="container">
+                <h3 class="section-tag">Portfolio</h3>
+                <h2 class="section-title">Featured <span class="gradient-text">Masterpieces</span>.</h2>
+                <div class="project-grid">
+                    <div class="project-card reveal-text">
+                        <div class="project-img" id="img-project-1"></div>
+                        <div class="project-info">
+                            <h4>Aura Sentiment Engine</h4>
+                            <p>Real-time NLP analysis with Transformers & FastAPI.</p>
+                            <a href="project-1.html" class="project-link">View Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="project-card reveal-text delay-1">
+                        <div class="project-img" id="img-project-2"></div>
+                        <div class="project-info">
+                            <h4>Nebula Diagnostics</h4>
+                            <p>Advanced Computer Vision for medical image analysis.</p>
+                            <a href="project-2.html" class="project-link">View Case Study →</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="projects.html" class="btn btn-secondary">View All Works</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Highlight -->
+        <section class="education-highlight">
+            <div class="container">
+                <div class="grid">
+                    <div>
+                        <h3 class="section-tag">Education</h3>
+                        <h2 class="section-title">Academic <span class="gradient-text">Foundation</span>.</h2>
+                        <p>Pursuing excellence at <strong>Manav Rachna University</strong>, specializing in AI & ML (Batch 2029). Building a strong theoretical and practical background in computer science.</p>
+                        <br>
+                        <p>Foundation laid at <strong>Holy Child Public School</strong>, where I developed my passion for logic and problem-solving.</p>
+                        <div style="margin-top: 2rem;">
+                            <a href="about.html" class="btn btn-primary">Read My Story</a>
+                        </div>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4>B.Tech CSE</h4>
+                            <p>MRU | 2025-2029</p>
+                        </div>
+                        <div class="skill-card">
+                            <h4>Schooling</h4>
+                            <p>Holy Child Public School</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <div class="container" style="text-align: center;">
+                <h2 class="reveal-text">Ready to build the <span class="gradient-text">future</span>?</h2>
+                <p class="reveal-text delay-1" style="margin-bottom: 2rem;">Let's collaborate on your next groundbreaking AI project.</p>
+                <a href="contact.html" class="btn btn-primary reveal-text delay-2">Get In Touch</a>
             </div>
         </section>
     </main>
